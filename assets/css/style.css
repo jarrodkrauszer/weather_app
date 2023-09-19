@@ -54,6 +54,7 @@ header {
 .search-button {
   background: #5887FF;
   color: #fff;
+  font-size: 1rem;
   border: none;
   margin: .8rem 0;
   padding: .5rem 0;
@@ -61,7 +62,7 @@ header {
 }
 
 .locations hr {
-  margin-bottom: .5rem;
+  margin: .3rem 0;
 }
 
 .cities {
@@ -69,7 +70,7 @@ header {
   flex-direction: column;
 }
 
-.city {
+.city-button {
   border: none;
   font-size: 1rem;
   background: #ccc;
