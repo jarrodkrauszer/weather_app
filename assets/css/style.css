@@ -44,6 +44,7 @@ header {
 
 .locations h1 {
   margin-bottom: .5rem;
+  font-size: 2rem;
 }
 
 .locations input {
@@ -81,10 +82,73 @@ header {
   border-radius: 3px;
 }
 
-/* FORECAST SECTION */
-.forecast-section {
+/* WEATHER SECTION */
+.weather-section {
   flex: 1 1 0%;
-  margin-left: .75rem;
+  margin: .2rem 6rem 0 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
+.todays-forecast {
+  border: 1px solid #000;
+  padding-left: .5rem;
+  padding-bottom: .5rem;
+  display: flex;
+  flex-direction: column;
+}
 
+.todays-forecast p {
+  font-size: 1.25rem;
+  margin: .75rem 0;
+}
+
+.city-description {
+  display: flex;
+  padding-top: .5rem;
+  align-items: center;
+}
+
+.city-description h2 {
+  font-size: 2rem;
+}
+
+#todays-icon {
+  margin-left: 1.75rem;
+}
+
+/* 5-DAY FORECAST */
+.forecast h3 {
+  padding-top: .75rem;
+  font-size: 1.75rem;
+}
+
+.five-day {
+  display: flex;
+  padding-top: .3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day {
+  background: #343d4d;
+  color: #fff;
+  padding: .5rem 1rem 1rem .3rem;
+  margin-top: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.day h4 {
+  font-size: 1.3rem;
+}
+
+.day p {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+/* GLOBAL */
+.hidden {
+  display: none;
+}

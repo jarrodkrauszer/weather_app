@@ -19,21 +19,80 @@
         <input id="city-name" type="text" placeholder="Enter City Name" />
         <button class="search-button">Search</button>
         <hr />
-        <div class="cities">
-          <button class="city-button">New York</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-          <button class="city-button">Philadelphia</button>
-        </div>
+        <div class="cities"></div>
       </aside>
-      <section class="forecast-section">
-        <h2>Section</h2>
+      <section id="weather-forecast" class="weather-section hidden">
+        <section class="todays-forecast">
+          <div class="city-description">
+            <h2 id="city-date"></h2>
+            <img id="todays-icon" src="" alt="Weather Icon" />
+          </div>
+          <p>Temp: <span id="todays-temp"></span><span> &#8457;</span></p>
+          <p>Wind: <span id="todays-wind"></span><span> MPH</span></p>
+          <p>Humidity: <span id="todays-humidity"></span><span>%</span></p>
+        </section>
+        <section class="forecast">
+          <h3>5-Day Forecast:</h3>
+          <div class="five-day">
+            <div class="day">
+              <h4>9/20/2023</h4>
+              <img
+                src="https://openweathermap.org/img/wn/01d.png"
+                alt="Weather Icon"
+              />
+              <p>Temp: 74.74<span> &#8457;</span></p>
+              <p>Wind: 15.45<span> MPH</span></p>
+              <p>Humidity: 30<span>%</span></p>
+            </div>
+            <div class="day">
+              <h4>9/20/2023</h4>
+              <img
+                src="https://openweathermap.org/img/wn/01d.png"
+                alt="Weather Icon"
+              />
+              <p>Temp: 74.74<span> &#8457;</span></p>
+              <p>Wind: 15.45<span> MPH</span></p>
+              <p>Humidity: 30<span>%</span></p>
+            </div>
+            <div class="day">
+              <h4>9/20/2023</h4>
+              <img
+                src="https://openweathermap.org/img/wn/01d.png"
+                alt="Weather Icon"
+              />
+              <p>Temp: 74.74<span> &#8457;</span></p>
+              <p>Wind: 15.45<span> MPH</span></p>
+              <p>Humidity: 30<span>%</span></p>
+            </div>
+            <div class="day">
+              <h4>9/20/2023</h4>
+              <img
+                src="https://openweathermap.org/img/wn/01d.png"
+                alt="Weather Icon"
+              />
+              <p>Temp: 74.74<span> &#8457;</span></p>
+              <p>Wind: 15.45<span> MPH</span></p>
+              <p>Humidity: 30<span>%</span></p>
+            </div>
+            <div class="day">
+              <h4>9/20/2023</h4>
+              <img
+                src="https://openweathermap.org/img/wn/01d.png"
+                alt="Weather Icon"
+              />
+              <p>Temp: 74.74<span> &#8457;</span></p>
+              <p>Wind: 15.45<span> MPH</span></p>
+              <p>Humidity: 30<span>%</span></p>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
