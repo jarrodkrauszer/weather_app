@@ -46,18 +46,22 @@ function getForecast(lat, lon) {
     return response.json();
   }).then(function(data) {
     data.list.forEach(function(day) {
-      if(day.dt_txt.includes('12:00:00')) {
-        console.log(day);
-        // fiveDay.innerHTML += `<div class="day">
-        // <h4>${new Date(day.dt * 1000).toLocaleDateString()}</h4>
-        // <img
-        //   src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png"
-        //   alt="Weather Icon"
-        // />
-        // <p>Temp: ${day.main.temp}<span> &#8457;</span></p>
-        // <p>Wind: ${day.wind.speed}<span> MPH</span></p>
-        // <p>Humidity: ${day.main.humidity}<span>%</span></p>
-        // </div>`;  
+      var forecastDate = dayjs(day.dt_txt);
+      // Get the current date from your computer
+      var currentDate = dayjs();
+      console.log(day);
+      if(currentDate.date() != forecastDate.date() && day.dt_txt.includes('12:00:00')) {
+        
+        fiveDay.innerHTML += `<div class="day">
+        <h4>${new Date(day.dt * 1000).toLocaleDateString()}</h4>
+        <img
+          src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png"
+          alt="Weather Icon"
+        />
+        <p>Temp: ${day.main.temp}<span> &#8457;</span></p>
+        <p>Wind: ${day.wind.speed}<span> MPH</span></p>
+        <p>Humidity: ${day.main.humidity}<span>%</span></p>
+        </div>`;  
       }
     })
   });
@@ -69,26 +73,30 @@ function getWeather(city) {
     .then(function (response) {
       return response.json();
     }).then(function(data) {
+      if(data.cod == 200) {
+        getForecast(data.coord.lat, data.coord.lon);
+        weatherSection.classList.remove('hidden');
 
-      getForecast(data.coord.lat, data.coord.lon);
-      weatherSection.classList.remove('hidden');
+        var cityNameEl = document.querySelector('#city-date');
+        var todaysIconEl = document.querySelector('#todays-icon');
+        var todaysTempEl = document.querySelector('#todays-temp');
+        var todaysWindEl = document.querySelector('#todays-wind');
+        var todaysHumidityEl = document.querySelector('#todays-humidity');
 
-      var cityNameEl = document.querySelector('#city-date');
-      var todaysIconEl = document.querySelector('#todays-icon');
-      var todaysTempEl = document.querySelector('#todays-temp');
-      var todaysWindEl = document.querySelector('#todays-wind');
-      var todaysHumidityEl = document.querySelector('#todays-humidity');
+        var timeFormatted = new Date(data.dt * 1000).toLocaleDateString();
 
-      var timeFormatted = new Date(data.dt * 1000).toLocaleDateString();
+        cityNameEl.innerText = `${data.name}  (${timeFormatted})`
+        todaysIconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        todaysTempEl.innerText = data.main.temp;
+        todaysWindEl.innerText = data.wind.speed;
+        todaysHumidityEl.innerText = data.main.humidity;
 
-      cityNameEl.innerText = `${data.name}  (${timeFormatted})`
-      todaysIconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-      todaysTempEl.innerText = data.main.temp;
-      todaysWindEl.innerText = data.wind.speed;
-      todaysHumidityEl.innerText = data.main.humidity;
-
-      addItemToStorage(city);
-      displaySavedCities();
+        addItemToStorage(city);
+        displaySavedCities();
+      } else {
+        alert('Location Not Found!');
+      }
+      
     });
 }
 

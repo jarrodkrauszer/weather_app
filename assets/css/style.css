@@ -140,15 +140,39 @@ header {
 }
 
 .day h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+
+.day img {
+  height: 50px;
+  width: 50px;
 }
 
 .day p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-bottom: 1rem;
 }
 
 /* GLOBAL */
 .hidden {
   display: none;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1060px) {
+  .five-day {
+    justify-content: safe;
+  }
+  .day h4 {
+    font-size: 1rem;
+  }
+
+  .day p {
+    font-size: .8rem;
+  }
 }
