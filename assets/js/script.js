@@ -39,6 +39,7 @@ function getItemsFromStorage() {
 }
 
 function getForecast(lat, lon) {
+  
   fiveDay.innerHTML = '';
 
   fetch(`${baseUrl}/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
