@@ -39,7 +39,7 @@ function getItemsFromStorage() {
 }
 
 function getForecast(lat, lon) {
-  // fiveDay.innerHTML = '';
+  fiveDay.innerHTML = '';
 
   fetch(`${baseUrl}/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
   .then(function (response) {
@@ -49,7 +49,7 @@ function getForecast(lat, lon) {
       var forecastDate = dayjs(day.dt_txt);
       // Get the current date from your computer
       var currentDate = dayjs();
-      console.log(day);
+      
       if(currentDate.date() != forecastDate.date() && day.dt_txt.includes('12:00:00')) {
         
         fiveDay.innerHTML += `<div class="day">
@@ -75,6 +75,7 @@ function getWeather(city) {
     }).then(function(data) {
       if(data.cod == 200) {
         getForecast(data.coord.lat, data.coord.lon);
+
         weatherSection.classList.remove('hidden');
 
         var cityNameEl = document.querySelector('#city-date');
